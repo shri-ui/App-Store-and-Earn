@@ -1,0 +1,67 @@
+/* Styles for Upload Screenshot Page */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.upload-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1 1 20px rgba(116, 30, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Set a maximum width for the container */
+    background: white; /* White background for the form */
+}
+
+.upload-container h2 {
+    text-align: center;
+    font-size: 30px; /* Adjusted font size */
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 20px; /* Space between input groups */
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 20px; /* Adjusted font size */
+    color: #333;
+    display: block;
+}
+
+input[type="file"] {
+    font-size: 18px; /* Adjusted font size */
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: rgb(94, 92, 219);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px; /* Adjusted font size */
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: blueviolet;
+    color: black;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the App Store</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <a href="{% url 'show_apps' %}" class="action-button">Show Available Apps</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline; float: right;">
+                    {% csrf_token %}
+                    <button type="submit" class="action-button">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'signup' %}" class="action-button">Sign Up</a>
+                <a href="{% url 'login' %}" class="action-button">Login</a>
+                <a href="{% url 'signup' %}" class="action-button">Sign Up to View Available Apps</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Discover Amazing Apps</h2>
+        <p>Earn points by downloading apps and completing tasks!</p>
+        <div class="features">
+            <div class="feature">
+                <h3>Explore</h3>
+                <p>Browse through a variety of apps tailored to your interests.</p>
+            </div>
+            <div class="feature">
+                <h3>Download</h3>
+                <p>Get the apps you love directly from the Play Store.</p>
+            </div>
+            <div class="feature">
+                <h3>Earn Points</h3>
+                <p>Complete tasks and earn points for exciting rewards!</p>
+            </div>
+        </div>
+        <p><a href="{% url 'show_apps' %}" class="cta-button">Show Available Apps</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My App. All rights reserved.</p>
+    </footer>
+</body>
+</html>

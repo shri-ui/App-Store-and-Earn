@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Successful</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Successful!</h2>
+        <p>Your screenshot has been uploaded successfully.</p>
+        <p><a href="{% url 'home' %}">Return to Home</a></p> 
+        <p><a href="{% url 'upload_screenshot' app_id %}">Upload Another Screenshot</a></p> 
+    </div>
+</body>
+</html>

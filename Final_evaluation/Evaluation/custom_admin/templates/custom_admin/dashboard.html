@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'custom_admin/dashboard.css' %}"> 
+</head>
+<body>
+    <header>
+        <h1>Custom Admin Dashboard</h1>
+        <nav>
+            <a href="{% url 'admin:index' %}">Django Admin</a>
+            <a href="{% url 'custom_admin_logout' %}">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>User Tasks</h2>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>App Name</th>
+                <th>Points Earned</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.user.username }}</td>
+                <td>{{ task.app.name }}</td>
+                <td>{{ task.points_earned }}</td>
+                <td>{{ task.completed|yesno:"Yes,No" }}</td>
+                <td>
+                    <form action="{% url 'assign_points' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                        <input type="number" name="points" placeholder="Points" required>
+                        <button type="submit">Assign Points</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>App List</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Play Store Link</th>
+                <th>Actions</th>
+            </tr>
+            {% for app in apps %}
+            <tr>
+                <td>{{ app.name }}</td>
+                <td>{{ app.points }}</td>
+                <td><a href="{{ app.playstore_link }}" target="_blank">View</a></td>
+                <td>
+                    <a href="{% url 'edit_app' app.id %}">Edit</a>
+                    <a href="{% url 'delete_app' app.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Add New App</h2>
+        <form action="{% url 'add_app' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="App Name" required>
+            <input type="number" name="points" placeholder="Points" required>
+            <input type="url" name="playstore_link" placeholder="Play Store Link" required>
+            <button type="submit">Add App</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("car.jpeg"); /* Ensure this image path is correct */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1 1 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Set a maximum width for the container */
+    margin: 0 20px; /* Reduce side margins */
+    height: auto; /* Allow height to adjust based on content */
+    backdrop-filter: blur(10px);
+}
+
+.login-container h2 {
+    text-align: center;
+    font-size: 30px; /* Adjusted font size */
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px; /* Reduced margin for input groups */
+}
+
+#pass {
+    margin-bottom: 30px; /* Reduced margin for password input */
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 20px; /* Adjusted font size */
+    color: rgba(2, 9, 17, 0.932);
+    text-indent: 1pt;
+    display: block;
+}
+
+input[type="text"], input[type="password"] {
+    font-size: 18px; /* Adjusted font size */
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: rgb(94, 92, 219);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    align-items: center;
+    font-size: 18px; /* Adjusted font size */
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    background-color: blueviolet;
+    color: black;
+    transform: scale(1.1); /* Slightly reduced scale on hover */
+}
+
+#masg {
+    font-size: 20px;
+    color: aliceblue;
+    display: block;
+    background-color: #910e0e;
+}

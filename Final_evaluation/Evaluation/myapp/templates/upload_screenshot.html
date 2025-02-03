@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Screenshot</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Upload Your Screenshot</h1>
+        <nav>
+            <a href="{% url 'show_apps' %}" class="action-button">Show Available Apps</a>
+            <a href="{% url 'points_earned' app.id %}" class="action-button">View Points Earned</a>
+            <form action="{% url 'logout' %}" method="post" style="display:inline; float: right;">
+                {% csrf_token %}
+                <button type="submit" class="action-button">Logout</button>
+            </form>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Upload Screenshot</h2>
+        <form action="{% url 'upload_screenshot' app_id %}" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+            {% csrf_token %}
+            <div class="fallback">
+                <input name="screenshot" type="file" required />
+                <button type="submit">Upload Screenshot</button>
+            </div>
+        </form>
+        <p>Make sure to upload a screenshot of the completed task.</p>
+        <a href="{% url 'show_apps' %}" class="cta-button">Back to Available Apps</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        Dropzone.options.myDropzone = {
+            paramName: "screenshot",
+            maxFilesize: 2,
+            acceptedFiles: ".png,.jpg,.jpeg,.gif",
+            success: function(file, response) {
+                window.location.href = "{% url 'upload_success' app_id %}";
+            },
+            error: function(file, response) {
+                alert("Error uploading file: " + response);
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Earned</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/points_earned.css' %}">
+</head>
+<body>
+    <div class="points-container">
+        <h2>Points Earned</h2>
+        <div class="points-list">
+            {% for point in points %}
+                <div class="points-item">
+                    <h3>{{ point.title }}</h3>
+                    <p>Points: {{ point.value }}</p>
+                    <p>Date Earned: {{ point.date_earned }}</p>
+                </div>
+            {% empty %}
+                <p> Your data is being evaluated. Keep up the great work!</p>
+            {% endfor %}
+        </div>
+        <a href="{% url 'show_apps' %}" class="back-button">Back to Available Apps</a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,171 @@
+/* Simple Styles for All Pages */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+/* Link Styles */
+a {
+    color: #0f1416;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Form Styles */
+form {
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Styles for Home Page */
+
+/* General Styles */
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.feature {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%; /* Adjust width for three features in a row */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Action Buttons */
+.action-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #007bff; /* Blue color for visibility */
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 10px; /* Add margin for spacing */
+    transition: background 0.3s;
+}
+
+.action-button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #35424a; /* Dark background for contrast */
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+    margin-top: 20px; /* Add margin for spacing */
+}
+
+.cta-button:hover {
+    background: #45a049; /* Lighter shade on hover */
+}
+
+/* Login and Signup Links */
+nav a {
+    background: #007bff; /* Blue background for visibility */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: #0056b3;
+}

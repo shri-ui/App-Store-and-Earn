@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'custom_admin/editapp.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Edit App: {{ app.name }}</h1>
+        <nav>
+            <a href="{% url 'custom_admin_dashboard' %}">Back to Dashboard</a>
+        </nav>
+    </header>
+    <main>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="{{ app.name }}" required>
+            <label for="points">Points:</label>
+            <input type="number" name="points" value="{{ app.points }}" required>
+            <label for="playstore_link">Play Store Link:</label>
+            <input type="url" name="playstore_link" value="{{ app.playstore_link }}" required>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+</body>
+</html>

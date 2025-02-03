@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Custom Admin</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'custom_admin/login.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Login to Custom Admin</h1>
+    </header>
+    <main>
+        <h2>Admin Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </main>
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- templates/manage_apps.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Apps</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Manage Apps</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields -->
+            <button type="submit">Add App</button> 
+        </form>
+        <h3>Existing Apps</h3>
+        <ul>
+            {% for app in apps %}
+                <li>{{ app.name }} - {{ app.points }} points</li>
+            {% empty %}
+                <li>No apps available.</li>
+            {% endfor %}
+        </ul>
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+    </div>
+</body>
+</html>

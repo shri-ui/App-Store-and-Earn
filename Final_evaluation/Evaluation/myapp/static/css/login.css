@@ -1,0 +1,65 @@
+/* Styles for Login Page */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px; /* Limit the width of the login form */
+    margin: 100px auto; /* Center the form vertically and horizontally */
+    padding: 20px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    color: #35424a; /* Dark color for the heading */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background: #35424a; /* Dark background for the button */
+    color: #ffffff; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+input[type="submit"]:hover {
+    background: #45a049; /* Lighter shade on hover */
+}
+
+.footer {
+    text-align: center; /* Center footer text */
+    margin-top: 20px; /* Space above footer */
+}
+
+.footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

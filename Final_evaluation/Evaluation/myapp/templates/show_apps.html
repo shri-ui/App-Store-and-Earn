@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Apps</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/show_apps.css' %}">
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to the App Store</h1>
+        <nav>
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post" style="display:inline; float: right;">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'signup' %}">Sign Up to View Available Apps</a>
+            {% endif %}
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Available Apps</h2>
+        <div class="app-list">
+            {% for app in apps %}
+                <div class="app-card">
+                    <h3 class="app-name">{{ app.name }}</h3>
+                    <p class="app-points">Points: {{ app.points }}</p>
+                    <a href="{{ app.playstore_link }}" target="_blank" class="app-button">Download</a>
+                    <a href="{% url 'upload_screenshot' app.id %}" class="app-button">Upload Screenshot</a>
+                </div>
+            {% empty %}
+                <p>No apps available.</p>
+            {% endfor %}
+        </div>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
